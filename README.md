@@ -11,3 +11,15 @@ Website is created with:
 https://weather-app-js-react.herokuapp.com/
 
 ![Weather App ](https://github.com/jerineaso/weather-app-javascript/blob/master/screenshots/screencapture-127-0-0-1-5500-index-html-2022-07-17-12_51_18.png)
+
+## Installation and Setup
+
+Clone down this repository. You will need node and npm installed globally on your machine.
+
+Installation:
+
+<code>npm install</code>
+
+To Start Server:
+
+<code>npm start</code>
