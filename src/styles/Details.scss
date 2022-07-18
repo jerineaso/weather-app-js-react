@@ -1,0 +1,49 @@
+.detailed_tab{
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    color: #ffff;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.41);
+    border-radius: 4px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+
+    .main_sec{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .weather_img{
+            width: 150px;
+        }
+
+        .aligned{
+            display: inline-block;
+            margin: 10px 25px;
+        }
+    }
+}
+
+$phn_width :700px;
+
+
+@media screen and (max-width :$phn_width){
+
+    .detailed_tab {
+        width: 90%;
+        
+        .main_sec{
+            flex-direction: column;
+        
+            .aligned{
+                margin: 10px; 
+            }
+        }
+
+    }
+
+}
