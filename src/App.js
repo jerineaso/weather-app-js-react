@@ -10,7 +10,7 @@ function App() {
   const [cityName, setCityName] = useState('');
   const [apiResponse, setApiResponse] = useState('')
   const [error, setError] = useState('')
-  const API = ""
+  const API = "8dbc1e38c1168ee680482073900931d7"
   
 
     function getLocation(){
