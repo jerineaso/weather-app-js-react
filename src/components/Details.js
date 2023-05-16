@@ -8,7 +8,7 @@ function Details(props) {
       <h2 className="heading-section">Detailed Report</h2>
       <div className="main_sec">
         <div className="left_img">
-          <img src="" alt="icon" srcset="" className='weather_img'/>
+          <img src="" alt="icon" srcSet="" className='weather_img'/>
         </div>
         <div className="right_desc">
           <div className="aligned">

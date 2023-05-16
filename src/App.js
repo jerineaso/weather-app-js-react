@@ -6,18 +6,20 @@ import axios from 'axios'
 function App() {
 
   const [modal, setModal] = useState(false)
-
+  const [locate, setLocate] = useState(false)
   const [cityName, setCityName] = useState('');
   const [apiResponse, setApiResponse] = useState('')
   const [error, setError] = useState('')
-  const API = ""
+  const API = process.env.REACT_APP_API
   
 
     function getLocation(){
       if(navigator.geolocation){
           navigator.geolocation.getCurrentPosition(showPosition,showError);
+          setLocate(true)
       }else{
           console.log(("not supported"));
+          setLocate(false)
       }
     }
 
@@ -25,7 +27,6 @@ function App() {
       let lat = position.coords.latitude;
       let lon = position.coords.longitude
       
-      console.log(lat+""+lon);
 
       axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API}`).then(res => setApiResponse(res.data))
 
@@ -50,21 +51,17 @@ function App() {
       }
     }
 
-  
-  console.log(apiResponse);
 
   async function valueChanged(value){
     axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${value}&units=metric&appid=${API}`).then(res => setApiResponse(res.data))
   }
-
-  console.log(apiResponse.name);
   
 
   return (
     <>
     <div className="centered">
       <div className="intro_img">
-        <img src="./weather_icons/day.svg" alt="icon" />
+        <img src="src\weather_icons\day.svg" alt="icon" />
       </div>
       <h2 className="heading">Discover the Weather in Your City</h2>
       <p id="descrip">Get to know your weather conditions </p>
@@ -80,9 +77,8 @@ function App() {
           <div className="separator"></div>
           <input type="button" value="Get Device Location" id="locate_btn" onClick={(e)=>{
             e.preventDefault();
-            console.log("clicked");
             getLocation();
-            setModal(true)
+            locate ? setModal(true) : setModal(false)
           }}/>
       </div>
     </div>
